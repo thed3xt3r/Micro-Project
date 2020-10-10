@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              10/10/2020 21:41:44 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <stdio.h>
+   3          
+   4          void main() {
+   5   1        SCON  = 0x50;                   /* SCON: mode 1, 8-bit UART, enable rcvr    */
+   6   1        TMOD |= 0x20;                   /* TMOD: timer 1, mode 2, 8-bit reload      */
+   7   1        TH1   = 0xf3;                   /* TH1:  reload value for 2400 baud         */
+   8   1        TR1   = 1;                      /* TR1:  timer 1 run                        */
+   9   1        TI    = 1;                      /* TI:   set TI to send first char of UART  */
+  10   1      
+  11   1        
+  12   1        puts("Choose a chocolate already!");
+  13   1        
+  14   1        while(1) {
+  15   2          unsigned int choice;
+  16   2          unsigned int amount;
+  17   2          
+  18   2          scanf("%d", &choice);
+  19   2          
+  20   2          switch(choice) {
+  21   3            case 1:
+  22   3              puts("You chose Perk");
+  23   3              break;
+  24   3            case 2:
+  25   3              puts("You chose 5-Star");
+  26   3              break;
+  27   3            case 3:
+  28   3              puts("You chose Toblerone");
+  29   3              break;
+  30   3            default:
+  31   3              puts("Wrong choice mate");
+  32   3          }
+  33   2          
+  34   2          puts("Enter amount: ");
+  35   2          scanf("%d", &amount);
+  36   2          
+  37   2          puts("You are rich mate");
+  38   2        }
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    128    ----
+   CONSTANT SIZE    =    134    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
