@@ -1,0 +1,280 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/10/2020  21:41:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj TO .\Objects\ChocolateVendingMachine PRINT (.\List
+>> ings\ChocolateVendingMachine.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTS)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (SCANF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ISTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PILDIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (GETCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (UNGETC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (ISSPACE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTXDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTPDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (_GETKEY)
+
+
+LINK MAP OF MODULE:  .\Objects\ChocolateVendingMachine (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?GETCHAR
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.6   UNIT         _BIT_GROUP_
+            BIT     0020H.6   0000H.1   UNIT         ?BI?GETCHAR
+                    0020H.7   0000H.1                *** GAP ***
+            DATA    0021H     001EH     UNIT         _DATA_GROUP_
+            IDATA   003FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0317H     UNIT         ?PR?SCANF?SCANF
+            CODE    0B17H     00E5H     UNIT         ?C?LIB_CODE
+            CODE    0BFCH     0086H     UNIT         ?CO?MAIN
+            CODE    0C82H     0080H     UNIT         ?PR?MAIN?MAIN
+            CODE    0D02H     002AH     UNIT         ?PR?_PUTS?PUTS
+            CODE    0D2CH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0D53H     0013H     UNIT         ?PR?_ISSPACE?ISSPACE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/10/2020  21:41:46  PAGE 2
+
+
+            CODE    0D66H     0011H     UNIT         ?PR?GETCHAR?GETCHAR
+            CODE    0D77H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0D83H     000AH     UNIT         ?PR?_GETKEY?_GETKEY
+            CODE    0D8DH     0005H     UNIT         ?PR?GETCHAR?UNGETCHAR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\ChocolateVendingMachine (?C_STARTUP)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----      0021H    0004H
+  +--> ?CO?MAIN
+  +--> ?PR?_PUTS?PUTS
+  +--> ?PR?SCANF?SCANF
+
+?PR?_PUTS?PUTS                 -----    -----      -----    -----
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?SCANF?SCANF                0020H.0  0000H.6    0025H    001AH
+  +--> ?PR?GETCHAR?UNGETCHAR
+  +--> ?PR?_ISSPACE?ISSPACE
+  +--> ?PR?GETCHAR?GETCHAR
+
+?PR?GETCHAR?GETCHAR            -----    -----      -----    -----
+  +--> ?PR?_GETKEY?_GETKEY
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\ChocolateVendingMachine (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0D77H         SEGMENT       ?C_C51STARTUP
+  I:003FH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0D7AH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/10/2020  21:41:46  PAGE 3
+
+
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0D77H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0D77H         LINE#         133
+  C:0D79H         LINE#         134
+  C:0D7AH         LINE#         135
+  C:0D7BH         LINE#         136
+  C:0D7DH         LINE#         185
+  C:0D80H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  C:0C82H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          MAIN
+  -------         DO            
+  D:0021H         SYMBOL        choice
+  D:0023H         SYMBOL        amount
+  -------         ENDDO         
+  C:0C82H         LINE#         4
+  C:0C82H         LINE#         5
+  C:0C85H         LINE#         6
+  C:0C88H         LINE#         7
+  C:0C8BH         LINE#         8
+  C:0C8DH         LINE#         9
+  C:0C8FH         LINE#         12
+  C:0C98H         LINE#         14
+  C:0C98H         LINE#         18
+  C:0CAAH         LINE#         20
+  C:0CBBH         LINE#         21
+  C:0CBBH         LINE#         22
+  C:0CC1H         LINE#         23
+  C:0CC3H         LINE#         24
+  C:0CC3H         LINE#         25
+  C:0CC9H         LINE#         26
+  C:0CCBH         LINE#         27
+  C:0CCBH         LINE#         28
+  C:0CD1H         LINE#         29
+  C:0CD3H         LINE#         30
+  C:0CD3H         LINE#         31
+  C:0CDCH         LINE#         32
+  C:0CDCH         LINE#         34
+  C:0CE5H         LINE#         35
+  C:0CF7H         LINE#         37
+  C:0D00H         LINE#         38
+  -------         ENDPROC       MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/10/2020  21:41:46  PAGE 4
+
+
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        PUTS
+  C:0D02H         PUBLIC        _PUTS
+  -------         ENDMOD        PUTS
+
+  -------         MODULE        SCANF
+  D:0025H         PUBLIC        ?_SCANF517?BYTE
+  D:0025H         PUBLIC        ?_SCANF?BYTE
+  D:0025H         PUBLIC        ?_SSCANF517?BYTE
+  D:0025H         PUBLIC        ?_SSCANF?BYTE
+  C:0882H         PUBLIC        _SCANF
+  C:0882H         PUBLIC        _SCANF517
+  C:087EH         PUBLIC        _SSCANF
+  C:087EH         PUBLIC        _SSCANF517
+  -------         ENDMOD        SCANF
+
+  -------         MODULE        ?C?CLDPTR
+  C:0B17H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0B30H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?ISTPTR
+  C:0B42H         PUBLIC        ?C?ISTPTR
+  -------         ENDMOD        ?C?ISTPTR
+
+  -------         MODULE        ?C?LNEG
+  C:0B61H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?LSTPTR
+  C:0B6FH         PUBLIC        ?C?LSTPTR
+  -------         ENDMOD        ?C?LSTPTR
+
+  -------         MODULE        ?C?PLDIDATA
+  C:0B89H         PUBLIC        ?C?PLDIDATA
+  -------         ENDMOD        ?C?PLDIDATA
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0B92H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?PILDIDATA
+  C:0BA2H         PUBLIC        ?C?PILDIDATA
+  -------         ENDMOD        ?C?PILDIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0BB2H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0D2CH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/10/2020  21:41:46  PAGE 5
+
+
+  -------         MODULE        GETCHAR
+  B:0020H.6       PUBLIC        ?C?CHARLOADED
+  D:0008H         PUBLIC        ?_UNGETCHAR?BYTE
+  C:0D66H         PUBLIC        GETCHAR
+  -------         ENDMOD        GETCHAR
+
+  -------         MODULE        UNGETC
+  C:0D8DH         PUBLIC        _UNGETCHAR
+  -------         ENDMOD        UNGETC
+
+  -------         MODULE        ISSPACE
+  C:0D53H         PUBLIC        _isspace
+  -------         ENDMOD        ISSPACE
+
+  -------         MODULE        ?C?LSTIDATA
+  C:0BD8H         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C?LSTXDATA
+  C:0BE4H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?LSTPDATA
+  C:0BF0H         PUBLIC        ?C?LSTPDATA
+  -------         ENDMOD        ?C?LSTPDATA
+
+  -------         MODULE        _GETKEY
+  C:0D83H         PUBLIC        _GETKEY
+  -------         ENDMOD        _GETKEY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0115H BYTE (13%) *
+******************************************************************************
+
+Program Size: data=40.7 xdata=0 code=1429
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
