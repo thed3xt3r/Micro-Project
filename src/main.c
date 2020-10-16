@@ -1,23 +1,33 @@
 #include <reg51.h>
 #include <stdio.h>
 
-void main() {
-	SCON  = 0x50;                   /* SCON: mode 1, 8-bit UART, enable rcvr    */
-	TMOD |= 0x20;                   /* TMOD: timer 1, mode 2, 8-bit reload      */
-	TH1   = 0xf3;                   /* TH1:  reload value for 2400 baud         */
-	TR1   = 1;                      /* TR1:  timer 1 run                        */
-	TI    = 1;                      /* TI:   set TI to send first char of UART  */
+int check_amount(int *choice, int *amount)
+{
+	int price[] = {20,10,5};
+	int change = *amount - price[*choice-1];
+	
+	if (change < 0) return -1;
+	
+	puts("Sold");
+	
+	return change;
+}
 
+void main() {
+	SCON  = 0x50;
+	TMOD |= 0x20;
+	TH1   = 0xf3;
+	TR1   = 1;
+	TI    = 1;
 	
 	puts("Choose a chocolate already!");
 	
 	while(1) {
-		unsigned int choice;
-		unsigned int amount;
+		int c, a, r;
 		
-		scanf("%d", &choice);
+		scanf("%d", &c);
 		
-		switch(choice) {
+		switch(c) {
 			case 1:
 				puts("You chose Perk");
 				break;
@@ -32,8 +42,8 @@ void main() {
 		}
 		
 		puts("Enter amount: ");
-		scanf("%d", &amount);
-		
-		puts("You are rich mate");
+		scanf("%d", &a);
+		r = check_amount(&c, &a);
+		puts("Done!");
 	}
 }

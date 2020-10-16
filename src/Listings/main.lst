@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              10/10/2020 21:41:44 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              10/16/2020 18:47:30 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -11,50 +11,62 @@ line level    source
    1          #include <reg51.h>
    2          #include <stdio.h>
    3          
-   4          void main() {
-   5   1        SCON  = 0x50;                   /* SCON: mode 1, 8-bit UART, enable rcvr    */
-   6   1        TMOD |= 0x20;                   /* TMOD: timer 1, mode 2, 8-bit reload      */
-   7   1        TH1   = 0xf3;                   /* TH1:  reload value for 2400 baud         */
-   8   1        TR1   = 1;                      /* TR1:  timer 1 run                        */
-   9   1        TI    = 1;                      /* TI:   set TI to send first char of UART  */
-  10   1      
-  11   1        
-  12   1        puts("Choose a chocolate already!");
-  13   1        
-  14   1        while(1) {
-  15   2          unsigned int choice;
-  16   2          unsigned int amount;
-  17   2          
-  18   2          scanf("%d", &choice);
-  19   2          
-  20   2          switch(choice) {
-  21   3            case 1:
-  22   3              puts("You chose Perk");
-  23   3              break;
-  24   3            case 2:
-  25   3              puts("You chose 5-Star");
-  26   3              break;
-  27   3            case 3:
-  28   3              puts("You chose Toblerone");
-  29   3              break;
-  30   3            default:
-  31   3              puts("Wrong choice mate");
-  32   3          }
-  33   2          
-  34   2          puts("Enter amount: ");
-  35   2          scanf("%d", &amount);
-  36   2          
-  37   2          puts("You are rich mate");
-  38   2        }
-  39   1      }
+   4          int check_amount(int *choice, int *amount)
+   5          {
+   6   1        int price[] = {20,10,5};
+   7   1        int change = *amount - price[*choice-1];
+   8   1        
+   9   1        if (change < 0) return -1;
+  10   1        
+  11   1        puts("Sold");
+  12   1        
+  13   1        return change;
+  14   1      }
+  15          
+  16          void main() {
+  17   1        SCON  = 0x50;
+  18   1        TMOD |= 0x20;
+  19   1        TH1   = 0xf3;
+  20   1        TR1   = 1;
+  21   1        TI    = 1;
+  22   1        
+  23   1        puts("Choose a chocolate already!");
+  24   1        
+  25   1        while(1) {
+  26   2          int c, a, r;
+  27   2          
+  28   2          scanf("%d", &c);
+  29   2          
+  30   2          switch(c) {
+  31   3            case 1:
+  32   3              puts("You chose Perk");
+  33   3              break;
+  34   3            case 2:
+  35   3              puts("You chose 5-Star");
+  36   3              break;
+  37   3            case 3:
+  38   3              puts("You chose Toblerone");
+  39   3              break;
+  40   3            default:
+  41   3              puts("Wrong choice mate");
+  42   3          }
+  43   2          
+  44   2          puts("Enter amount: ");
+  45   2          scanf("%d", &a);
+  46   2          r = check_amount(&c, &a);
+  47   2          puts("Done!");
+  48   2        }
+  49   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    128    ----
-   CONSTANT SIZE    =    134    ----
+   CODE SIZE        =    239    ----
+   CONSTANT SIZE    =    133    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              10/16/2020 18:47:30 PAGE 2   
+
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       4
+   DATA SIZE        =   ----      20
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
