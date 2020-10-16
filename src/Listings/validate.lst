@@ -1,0 +1,41 @@
+C51 COMPILER V9.60.0.0   VALIDATE                                                          10/16/2020 18:39:21 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE VALIDATE
+OBJECT MODULE PLACED IN .\Objects\validate.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE validate.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -validate.lst) TABS(2) OBJECT(.\Objects\validate.obj)
+
+line level    source
+
+   1          #include <string.h>
+   2          #include <stdio.h>
+   3          
+   4          int check_amount(int *choice, int *amount)
+   5          {
+   6   1        int price[] = {20,10,5};
+   7   1        int change = *amount - price[*choice-1];
+   8   1        
+   9   1        char *msg;
+  10   1        strcpy(msg, "The change is: ");
+  11   1        strncat(msg, (char *)change, 1);
+  12   1        puts(msg);
+  13   1        
+  14   1        if (change < 0) return -1;
+  15   1        
+  16   1        return change;
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    130    ----
+   CONSTANT SIZE    =     22    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      17
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
